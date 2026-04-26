@@ -46,7 +46,18 @@ public abstract class Animal
     {
         return alive;
     }
-
+    
+    
+    public int getAge()
+    {
+        return age;
+    }
+    
+    public void incrementAge()
+    {
+        age++;
+    }
+    
     /**
      * Indicate that the animal is no longer alive.
      * It is removed from the field.
