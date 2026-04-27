@@ -39,11 +39,7 @@ public class Rabbit extends Animal
     {
         super(field, location);
         if(randomAge) {
-            int ageCount = rand.nextInt(getMaxAge());
-            for(int i = 0; i<ageCount; i++)
-            {
-                incrementAge();
-            }
+            setAge(rand.nextInt(getMaxAge()));
         }
     }
     

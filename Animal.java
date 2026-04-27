@@ -54,6 +54,10 @@ public abstract class Animal
         return age;
     }
     
+    protected void setAge(int age)
+    {
+        this.age = age;
+    }
     /**
      * Animal can breed if it has reached the breeding age.
      */

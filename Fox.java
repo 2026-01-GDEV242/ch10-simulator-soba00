@@ -43,8 +43,8 @@ public class Fox extends Animal
     {
         super(field, location);
         if(randomAge) {
-  
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
+            setAge(rand.nextInt(getMaxAge()));
         }
         else {
    
