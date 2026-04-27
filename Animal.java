@@ -63,7 +63,7 @@ public abstract class Animal
     }
     
     /**
-     * Increase the age. This could result in the fox's death.
+     * Increase the age. This could result in the animal's death.
      */
     protected void incrementAge()
     {
