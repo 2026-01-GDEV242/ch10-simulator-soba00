@@ -59,16 +59,16 @@ public abstract class Animal
      */
     protected boolean canBreed()
     {
-        return age >= getBreedingAge;
+        return age >= getBreedingAge();
     }
     
     /**
      * Increase the age. This could result in the fox's death.
      */
-    public void incrementAge()
+    protected void incrementAge()
     {
         age++;
-        if(age > getMaxAge) {
+        if(age > getMaxAge()) {
             setDead();
         }
     }
