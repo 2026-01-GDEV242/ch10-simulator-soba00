@@ -82,12 +82,13 @@ public class Fox extends Animal
         }
     }
     
-    
+    @Override
     protected int getMaxAge()
     {
         return MAX_AGE;
     }
     
+    @Override
     protected int getBreedingAge()
     {
         return BREEDING_AGE;

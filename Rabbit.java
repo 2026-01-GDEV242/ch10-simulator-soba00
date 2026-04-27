@@ -68,9 +68,17 @@ public class Rabbit extends Animal
             }
         }
     }
+    
+    @Override
     protected int getMaxAge()
     {
         return MAX_AGE;
+    }
+    
+    @Override
+    protected int getBreedingAge()
+    {
+        return BREEDING_AGE;
     }
     /**
      * Check whether or not this rabbit is to give birth at this step.
