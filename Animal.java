@@ -30,7 +30,8 @@ public abstract class Animal
         this.age = 0;
         setLocation(location);
     }
-    
+    protected abstract int getBreedingAge();
+    protected abstract int getMaxAge();
     /**
      * Make this animal act - that is: make it do
      * whatever it wants/needs to do.
@@ -53,9 +54,23 @@ public abstract class Animal
         return age;
     }
     
+    /**
+     * Animal can breed if it has reached the breeding age.
+     */
+    protected boolean canBreed()
+    {
+        return age >= getBreedingAge;
+    }
+    
+    /**
+     * Increase the age. This could result in the fox's death.
+     */
     public void incrementAge()
     {
         age++;
+        if(age > getMaxAge) {
+            setDead();
+        }
     }
     
     /**

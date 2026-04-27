@@ -28,8 +28,6 @@ public class Fox extends Animal
     private static final Random rand = Randomizer.getRandom();
     
     // Individual characteristics (instance fields).
-    // The fox's age.
-    private int age;
     // The fox's food level, which is increased by eating rabbits.
     private int foodLevel;
 
@@ -45,11 +43,11 @@ public class Fox extends Animal
     {
         super(field, location);
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+  
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
         }
         else {
-            age = 0;
+   
             foodLevel = RABBIT_FOOD_VALUE;
         }
     }
@@ -83,16 +81,16 @@ public class Fox extends Animal
             }
         }
     }
-
-    /**
-     * Increase the age. This could result in the fox's death.
-     */
-    private void incrementAge()
+    
+    
+    protected int getMaxAge()
     {
-        age++;
-        if(age > MAX_AGE) {
-            setDead();
-        }
+        return MAX_AGE;
+    }
+    
+    protected int getBreedingAge()
+    {
+        return BREEDING_AGE;
     }
     
     /**
@@ -164,11 +162,5 @@ public class Fox extends Animal
         return births;
     }
 
-    /**
-     * A fox can breed if it has reached the breeding age.
-     */
-    private boolean canBreed()
-    {
-        return age >= BREEDING_AGE;
-    }
+    
 }
