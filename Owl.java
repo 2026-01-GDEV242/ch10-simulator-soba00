@@ -67,6 +67,9 @@ public class Owl extends Animal
             giveBirth(newOwls);            
             // Move towards a source of food if found.
             Location newLocation = findFood();
+            if(getAge() % 2 == 0) {
+                newLocation = findFood();
+            }
             if(newLocation == null) { 
                 // No food found - try to move to a free location.
                 newLocation = getField().freeAdjacentLocation(getLocation());
