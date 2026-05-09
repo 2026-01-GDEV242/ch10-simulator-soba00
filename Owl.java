@@ -3,39 +3,39 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * A simple model of a fox.
- * Foxes age, move, eat rabbits, and die.
+ * A simple model of an owl.
+ * Owls age, move, eat rabbits, and die.
  * 
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29 (2)
  */
 public class Owl extends Animal
 {
-    // Characteristics shared by all foxes (class variables).
+    // Characteristics shared by all owl (class variables).
     
-    // The age at which a fox can start to breed.
-    private static final int BREEDING_AGE = 15;
-    // The age to which a fox can live.
-    private static final int MAX_AGE = 150;
-    // The likelihood of a fox breeding.
-    private static final double BREEDING_PROBABILITY = 0.08;
+    // The age at which an owl can start to breed.
+    private static final int BREEDING_AGE = 12;
+    // The age to which an owl can live.
+    private static final int MAX_AGE = 120;
+    // The likelihood of an owl breeding.
+    private static final double BREEDING_PROBABILITY = 0.04;
     // The maximum number of births.
-    private static final int MAX_LITTER_SIZE = 2;
+    private static final int MAX_HATCH_SIZE = 3;
     // The food value of a single rabbit. In effect, this is the
-    // number of steps a fox can go before it has to eat again.
-    private static final int RABBIT_FOOD_VALUE = 9;
+    // number of steps an owl can go before it has to eat again.
+    private static final int RABBIT_FOOD_VALUE = 11;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     
     // Individual characteristics (instance fields).
-    // The fox's food level, which is increased by eating rabbits.
+    // The owl's food level, which is increased by eating rabbits.
     private int foodLevel;
 
     /**
-     * Create a fox. A fox can be created as a new born (age zero
+     * Create an owl. An owl can be created as a new born (age zero
      * and not hungry) or with a random age and food level.
      * 
-     * @param randomAge If true, the fox will have random age and hunger level.
+     * @param randomAge If true, the owl will have random age and hunger level.
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
@@ -53,18 +53,18 @@ public class Owl extends Animal
     }
     
     /**
-     * This is what the fox does most of the time: it hunts for
+     * This is what the owl does most of the time: it hunts for
      * rabbits. In the process, it might breed, die of hunger,
      * or die of old age.
      * @param field The field currently occupied.
-     * @param newFoxes A list to return newly born foxes.
+     * @param newOwls A list to return newly born owls.
      */
-    public void act(List<Animal> newFoxes)
+    public void act(List<Animal> newOwls)
     {
         incrementAge();
         incrementHunger();
         if(isAlive()) {
-            giveBirth(newFoxes);            
+            giveBirth(newOwls);            
             // Move towards a source of food if found.
             Location newLocation = findFood();
             if(newLocation == null) { 
@@ -95,7 +95,7 @@ public class Owl extends Animal
     }
     
     /**
-     * Make this fox more hungry. This could result in the fox's death.
+     * Make this owl more hungry. This could result in the owl's death.
      */
     private void incrementHunger()
     {
@@ -131,13 +131,13 @@ public class Owl extends Animal
     }
     
     /**
-     * Check whether or not this fox is to give birth at this step.
+     * Check whether or not this owl is to give birth at this step.
      * New births will be made into free adjacent locations.
-     * @param newFoxes A list to return newly born foxes.
+     * @param newOwls A list to return newly born owls.
      */
-    private void giveBirth(List<Animal> newFoxes)
+    private void giveBirth(List<Animal> newOwls)
     {
-        // New foxes are born into adjacent locations.
+        // New owls are born into adjacent locations.
         // Get a list of adjacent free locations.
         Field field = getField();
         List<Location> free = field.getFreeAdjacentLocations(getLocation());
@@ -145,7 +145,7 @@ public class Owl extends Animal
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
             Owl young = new Owl(false, field, loc);
-            newFoxes.add(young);
+            newOwls.add(young);
         }
     }
         
@@ -158,7 +158,7 @@ public class Owl extends Animal
     {
         int births = 0;
         if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
-            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
+            births = rand.nextInt(MAX_HATCH_SIZE) + 1;
         }
         return births;
     }
