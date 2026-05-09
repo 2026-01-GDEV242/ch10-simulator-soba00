@@ -6,6 +6,28 @@ import java.util.Random;
  * A simple model of an owl.
  * Owls age, move, eat rabbits, and die.
  * 
+ * ASSUMPTIONS:
+ *  -Owls move and interact with the Field the same way all other animals do
+ *  -Owls hunt rabbits using the same model as foxes
+ *  -Owls have no direct interactions with wolves as they fly out of reach
+ *  -Owls DO indirectly interact with foxes by competing for food
+ *  -Uniquely Owls breed less often but have larger clutches of babies when 
+ *   they do
+ *  -Uniquely Owls Only hunt at at night to conserve energy
+ *  -Uniquely Owls sometimes do not lose food level as they are constantly, 
+ *   silently forage
+ *  -Uniquely Owls get more energy from rabbits than foxes do as they use less
+ *   calories when hunting due to smaller size and more effecient predation
+ *  
+ *  WITH THIS IN MIND, given the amount of hunger saving methods the owls 
+ *  employ, even with their less common breeding and slower rabbit hunting 
+ *  strategy; i assume the owls will outcompete the foxes for prey. As there
+ *  are no other prey animals, i assume the rabbits will either survive or no 
+ *  one does and thus im assuming the owls will either hunt them to extinction
+ *  and starve themselves, or the rabbits will endure
+ *
+ * 
+ * 
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29 (2)
  */

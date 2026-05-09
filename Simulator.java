@@ -144,10 +144,10 @@ public class Simulator
                     Fox fox = new Fox(true, field, location);
                     animals.add(fox);
                 }
-                else if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
+                else if(rand.nextDouble() <= OWL_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
-                    Fox fox = new Fox(true, field, location);
-                    animals.add(fox);
+                    Owl owl = new Owl(true, field, location);
+                    animals.add(owl);
                 }
                 else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     Location location = new Location(row, col);
