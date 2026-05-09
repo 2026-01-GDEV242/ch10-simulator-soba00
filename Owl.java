@@ -56,6 +56,10 @@ public class Owl extends Animal
      * This is what the owl does most of the time: it hunts for
      * rabbits. In the process, it might breed, die of hunger,
      * or die of old age.
+     * 
+     * UNIQUE BEHAVIOR: due to their nocturnal nature and smaller, 
+     * less calorie intensive bodies owls only hunt at night (50% of the time)
+     * 
      * @param field The field currently occupied.
      * @param newOwls A list to return newly born owls.
      */
@@ -99,10 +103,19 @@ public class Owl extends Animal
     
     /**
      * Make this owl more hungry. This could result in the owl's death.
+     * 
+     * UNIQUE BEHAVIOR: Due to their ability to fly totally silently 
+     * owls often pick up tiny critters as "snacks" while they forage.
+     * To simulate this, every turn there is a chance the owl snag a 
+     * small "snack" to tide it over and its hunger will not tick down
+     * 
      */
     private void incrementHunger()
     {
-        foodLevel--;
+        //Silent hunters easily pick up small meals to tide them over
+        if(rand.nextDouble()>.25) {
+            foodLevel--;
+        }
         if(foodLevel <= 0) {
             setDead();
         }
